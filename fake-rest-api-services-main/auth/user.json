@@ -4,6 +4,14 @@
     "username": "mio",
     "password": "$2b$10$JUrlGpH7PBBBqdfp2.EJiuVz5uV7ZUUciD32Xya8Xpx/KaODbE.EG",
     "join_date": "2022-06-30",
-    "phone_number": "0815932032233"
+    "phone_number": "0815932032233",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pbyIsImlhdCI6MTY1NjY0ODM5NSwiZXhwIjoxNjU2NzM0Nzk1fQ.FTU6cKpGn8L8wCB5YakiB8SluStjV4RI4fD0BI5XlA0"
+  },
+  {
+    "id": "ba2714025bbc535f",
+    "username": "miona",
+    "password": "$2b$10$k85arYkExUXBsa4YTwJKDevMJOmeeJ.0YqlHkN6wg/iP3X0ftxr66",
+    "phone_number": "0818179293",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pb25hIiwiaWF0IjoxNjU2NjY3NzgyLCJleHAiOjE2NTY3NTQxODJ9.YXk03Az1UkMyGcyWDIWeVUJ1NgdA7oytI3wYBh5bzAE"
   }
 ]

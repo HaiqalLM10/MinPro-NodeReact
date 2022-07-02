@@ -7,7 +7,7 @@ import './style.css'
 import request from '../../request'
 
 const validationSchema = yup.object().shape({
-  email: yup.string().email().required("Email salah"),
+  username: yup.string().min(3).required(),
   password: yup.string().min(8).required(),
 });
 
@@ -15,7 +15,7 @@ const Login = () => {
   const isAuth = sessionStorage.getItem('access_token')
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: ''
     },
     validationSchema: validationSchema,
@@ -37,20 +37,20 @@ const Login = () => {
     <div className="login_page">
       <Form className="form-container" onSubmit={formik.handleSubmit}>
         <h1 className="title" >Login</h1>
-        <p className="desc"> Welcome back to Mydashboard</p>
+        <p className="desc"> Welcome to Product Dashboard</p>
         <div className="row-input">
-          <Label>Email </Label>
+          <Label>Username </Label>
           <Input
-            id="email"
-            name="email"
-            placeholder={`Please type your email`}
-            value={formik.values.email}
+            id="username"
+            name="username"
+            placeholder={`Please type your username`}
+            value={formik.values.username}
             onChange={formik.handleChange}
-            invalid={formik.touched.email && Boolean(formik.errors.email)}
+            invalid={formik.touched.username && Boolean(formik.errors.username)}
           />
           {
-            formik.touched.email && Boolean(formik.errors.email) &&
-            <FormFeedback className="error-feedback">{formik.errors.email}</FormFeedback>
+            formik.touched.username && Boolean(formik.errors.username) &&
+            <FormFeedback className="error-feedback">{formik.errors.username}</FormFeedback>
           }
         </div>
         <br />
@@ -75,7 +75,7 @@ const Login = () => {
           Login
         </Button>
         <p className="signup">
-          {/* Don't have account <a href='/register'> Signup Now </a> */}
+          Don't have account <a href='/register'> Signup Now </a>
         </p>
       </Form>
     </div >

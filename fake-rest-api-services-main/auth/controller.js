@@ -9,6 +9,7 @@ const JWT_SECRET = "{8367E87C-B794-4A04-89DD-15FE7FDBFF78}"
 module.exports = {
   login: async (req, res) => {
     try {
+      console.log("req: ", req.body)
 
       if (!req.body.username || !req.body.password) {
         return resError({ req, res, msg: "username or password is missing!" })
@@ -62,10 +63,8 @@ module.exports = {
   verifyToken: (req, res, next) => {
     try {
       const token = req.headers['authorization'];
-      const split = token.split(' ')[1];
-      console.log("split: ", split)
 
-      jwt.verify(split, JWT_SECRET, (err) => {
+      jwt.verify(token, JWT_SECRET, (err) => {
         if (err) {
           resError({ req, res, code: 403,  msg: "Forbidden" });
         } else {

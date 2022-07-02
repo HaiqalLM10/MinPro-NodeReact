@@ -39,7 +39,7 @@ const Dashboard = () => {
 
 
   const fetchData = async () => {
-    await request.get('/employee')
+    await request.get('/product')
       .then(({ data }) => {
         setEmployeeList(data)
       })
@@ -53,7 +53,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container" style={{ margin: "0px 250px" }}>
-      <h1> Employee List </h1>
+      <h1> Products List </h1>
       <br />
       <Row>
         <Col>
@@ -65,9 +65,11 @@ const Dashboard = () => {
         <thead>
           <tr>
             <th>No</th>
-            <th>Employee ID</th>
+            <th>Product ID</th>
             <th>Name</th>
-            <th>Age</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Action </th>
           </tr>
         </thead>
@@ -79,7 +81,9 @@ const Dashboard = () => {
               </th>
               <td>{row.id}</td>
               <td>{row.name}</td>
-              <td>{row.age}</td>
+              <td>{row.description}</td>
+              <td>{row.quantity}</td>
+              <td>{row.price}</td>
               <td>
                 <Button onClick={() => handleEdit(row)} > Edit</Button>
                 &nbsp;&nbsp;

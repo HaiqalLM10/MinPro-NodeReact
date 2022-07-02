@@ -1,6 +1,7 @@
 import LoginPages from './pages/Login';
 import Dashboard from './pages/dashboard';
 import NotFound from './pages/notFound';
+import Catalog from './pages/Catalog';
 import {
   Routes,
   Route,
@@ -18,6 +19,7 @@ function RequireAuth() {
     // cek auth logged ada atau tidak
     // jika tidak ada maka arahkan ke login pages 
     // endpoint login ===>  'baseURL/'
+    
     return <Navigate to="/" />;
   }
 
@@ -28,19 +30,20 @@ function RequireAuth() {
       <Outlet />
     </>
   )
-}
+} 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-
+   
           {/* PUBLIC ROUTES
           Pages yang bisa di akses oleh siapa pun pengunjung website
           */}
           <Route>
-            <Route path="/" element={<LoginPages />} />
+            <Route path="/" element={<Catalog />} />
+            <Route path="/login" element={<LoginPages />} />
             <Route path="/register" element={<RegisterPage/>} />
 
             {/* PRIVATE ROUTES

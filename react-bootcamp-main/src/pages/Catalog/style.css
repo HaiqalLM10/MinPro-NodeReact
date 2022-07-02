@@ -1,0 +1,31 @@
+.header {
+    height: 80px;
+    background-color:#4b4988;
+    margin-bottom: 60px;
+    padding: 20px;
+    color: #ffff;
+  }
+  
+  .signup {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .signin {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .rcv-btn-one, .rcv-btn-two {
+      font-size: 10px;
+  }
+
+  .catalog_page {
+  
+    background-image: url('https://img.freepik.com/free-vector/diagonal-motion-lines-white-background_1017-33198.jpg?w=2000');
+    /* Full height */
+    height: 100vh;
+
+  }

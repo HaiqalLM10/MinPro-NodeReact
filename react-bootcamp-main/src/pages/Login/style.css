@@ -1,6 +1,6 @@
 :root {
   --main-color: #4b4988;
-  --second-color: #35326d;
+  --second-color: #534fa5;
   --third-color: #934085;
 }
 
@@ -9,7 +9,7 @@
   color: var(--main-color);
   text-align: center;
 
-  background-image: url('https://wallpaperaccess.com/full/5143159.jpg');
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/124/246/465/dark-blue-ornament-texture-wallpaper-preview.jpg');
   /* Full height */
   height: 100vh;
 
@@ -26,7 +26,7 @@
   padding: 50px 20px 10px;
   border-radius: 10px;
   max-width: 350px;
-  background-color: white;
+  background-color: rgb(208, 211, 224);
 }
 
 .title {
