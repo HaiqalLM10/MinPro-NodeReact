@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "reactstrap";
+import { Col, Modal, Row, ModalHeader, ModalBody } from "reactstrap";
 import './style.css'
 import Catalog from "react-catalog-view";
+import Form from "./form";
 import request from "../../request";
 
 const Catalogs = () => {
@@ -12,18 +13,27 @@ const Catalogs = () => {
     }
 
     const [productList, setProductList] = useState([]);
+    const [formType, setFormType] = useState(null);
+    const [formVisible, setFormVisible] = useState(false);
+    const [formEdited, setFormEdited] = useState({});
+
+    const handleViewProduct = (form) => {
+        setFormEdited(form);
+        setFormType("detail");
+        setFormVisible(true);
+    }
 
     const fetchData = async () => {
         await request.get('/product')
-          .then(({ data }) => {
-            setProductList(data)
-          })
-          .catch(err => alert(err))
-      }
+            .then(({ data }) => {
+                setProductList(data)
+            })
+            .catch(err => alert(err))
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         fetchData();
-      }, [])
+    }, [])
 
     const CONTENT_KEYS =
     {
@@ -31,9 +41,6 @@ const Catalogs = () => {
         cardTitleKey: "name",
         cardDescriptionKey: "description",
         priceKey: "price",
-        // discountedPriceKey: "quantity",
-        // priceCurrencyKey: "price",
-        // discountCurrencyKey: "price"
     };
 
 
@@ -55,17 +62,32 @@ const Catalogs = () => {
                     contentKeys={CONTENT_KEYS}
                     skeleton={0}
                     cardSize="sm"
-                    btnOneText="View"
+                    btnOneText="View" 
                     btnTwoText="Purchase Now"
                     btnOneHandler={(args, event, objectData) => {
+                        handleViewProduct(event);
                     }}
-                    btnTwoHandler={(args, event, row)=>{
+                    btnTwoHandler={(args, event, row) => {
                     }}
-                    imageClickHandler={(args, event, row)=>{
+                    imageClickHandler={(args, event, row) => {
                     }}
 
                 />
             </div>
+            <Modal
+                            isOpen={formVisible}
+                            toggle={() => setFormVisible(!formVisible)}
+                        >
+                            <ModalHeader className="detail_header">{`Detail Product`}</ModalHeader>
+                            <ModalBody className="detail_body">
+                                <Form
+                                    type={formType}
+                                    refetch={fetchData}
+                                    setVisible={setFormVisible}
+                                    formEdited={formEdited}
+                                />
+                            </ModalBody>
+                        </Modal>
         </div>
 
     )

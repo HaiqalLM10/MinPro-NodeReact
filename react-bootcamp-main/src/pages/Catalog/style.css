@@ -29,3 +29,20 @@
     height: 100vh;
 
   }
+
+  b {
+    color: #e80707;
+  }
+
+  .detail_header {
+    background-color: #b9b7e8;
+  }
+
+  .detail_body {
+    background-color: #b9b7e8;
+  }
+
+  .detail_page {
+    background-color: #b9b7e8;
+  }
+
